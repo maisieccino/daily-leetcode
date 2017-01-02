@@ -1,3 +1,21 @@
+/**
+ * ROTATE IMAGE (#48)
+ * Runtime: 3ms
+ *
+ * So yeah, it's clear that this won't beat any speed records.
+ * My algo creates a destination matrix, called newMatrix, for
+ * the transform.
+ *
+ * Then, it's just simple matrix rotation and translation. Since
+ * matrix rotations are always about the origin, I had to translate
+ * the resulting image upwards by (n-1) units so that it still fit
+ * within the new array.
+ *
+ * Finally, it's copied back to the original matrix. There is
+ * definitely a solution to do this by shifting four elements
+ * around at a time, but that's probably for another day!
+ */
+
 void rotate(int** matrix, int matrixRowSize, int matrixColSize) {
     int** newMatrix = (int**)malloc(sizeof(int *) * matrixRowSize);
     for (int i = 0; i < matrixRowSize; i++) {
